@@ -1,0 +1,20 @@
+<table>
+    <thead>
+    <tr>
+    <th>ID</th>
+    <th>Nombre</th>
+    <th>Email</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let row of registro">
+    <td>{{row.id}}</td>
+            <td>{{row.name}}</td>
+            <td>{{row.apellido}}</td>
+            <td>{{row.email}}</td>
+            <td>{{row.mobile}}</td>
+            <td>$ {{row.salary}}</td>
+    </tr>
+    </tbody>
+    </table>
+    <button (click)="descargarExcel()">Descargar Excel</button>

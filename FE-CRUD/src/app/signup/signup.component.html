@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="card">
+                <div class="text-center mb-4">
+                    <h1>Registrarme</h1>
+                </div>
+                <form [formGroup]="signUpForm">
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Nombre Completo</label>
+                        <input type="text" formControlName="fullname" class="form-control" id="exampleInputFullName" placeholder="Roberto Martinez">
+                        <span class="text-danger" *ngIf="signUpForm.controls['fullname'].dirty && signUpForm.hasError('required','fullname')">*Nombre completo es requerido</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Celular</label>
+                        <input type="text" formControlName="mobile" class="form-control" id="exampleInputMobileNumber" placeholder="301 456 8592">
+                        <span class="text-danger" *ngIf="signUpForm.controls['mobile'].dirty && signUpForm.hasError('required','mobile')">*Celular es requerido</span>
+                        <span></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Correo Electronico</label>
+                        <input type="email" formControlName="username" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Correo Electronico">
+                        <span class="text-danger" *ngIf="signUpForm.controls['username'].dirty && signUpForm.hasError('required','username')">*Correo Electronico es requerido</span>
+                        <span class="text-danger" *ngIf="signUpForm.hasError('email','username')">*Correo Electronico Invalido</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Contraseña</label>
+                        <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
+                        <span class="text-danger" *ngIf="signUpForm.controls['password'].dirty && signUpForm.hasError('required','password')">*Contraseña es obligatoria</span>
+                    </div>
+                    <div class="form-group mt-2">
+                        <label for="exampleInputPassword1">Tipo de Usuario</label>
+                        <select formControlName="usertype" class="form-select" aria-label="Default select example">
+                            <option selected value="" >Seleccione su tipo de usuario</option>
+                            <option value="Admin">Admin</option>
+                            <option value="Employee">Empleado</option>
+                            
+                          </select>
+                        <span class="text-danger" *ngIf="signUpForm.controls['usertype'].dirty && signUpForm.hasError('required','usertype')">*Tipo de Usuario es requerido</span>
+                    </div>
+
+                    <button type="submit" [disabled]="!signUpForm.valid" (click)="signUp()" class="btn btn-primary mt-3">Registrarme</button>
+                </form>
+                <a routerLink='/login' style="float:right;color:#fff">¿Ya tienes cuenta? - Iniciar Sesión</a>
+
+            </div>
+
+        </div>
+    </div>
+</div>
